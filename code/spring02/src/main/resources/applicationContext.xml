@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+ 
+xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ 
+xmlns:p="http://www.springframework.org/schema/p"
+ 
+xmlns:mvc="http://www.springframework.org/schema/mvc"
+ 
+xmlns:context="http://www.springframework.org/schema/context"
+ 
+xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context.xsd">
+
+        <bean id="person" class="com.limiao.spring.Person" scope="prototype">
+                <property name="car" ref="car"></property>
+        </bean>
+
+        <bean id="car" class="com.limiao.spring.Car" scope="prototype">
+                <property name="bmw" ref="bmw"></property>
+        </bean>
+
+        <bean id="bmw" class="com.limiao.spring.BMW" scope="prototype">
+                <property name="person" ref="person"></property>
+        </bean>
+
+        <!--<bean id="person" class="com.limiao.spring.Person" scope="singleton">
+                <constructor-arg name="car" ref="car"></constructor-arg>
+        </bean>
+
+        <bean id="car" class="com.limiao.spring.Car" scope="singleton">
+                <constructor-arg name="bmw" ref="bmw"></constructor-arg>
+        </bean>
+
+        <bean id="bmw" class="com.limiao.spring.BMW" scope="singleton">
+                <constructor-arg name="person" ref="person"></constructor-arg>
+        </bean>-->
+</beans>
